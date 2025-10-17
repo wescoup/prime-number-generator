@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wescoup's Prime Number Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Wescoup's Prime Number Generator</h1>
+
+        <div id="buttons">
+            <div>
+                <button id="run-level1">Run Level 1</button>
+                <span>Proof of concept - calculates prime numbers up to 1,000.</span>
+            </div>
+            <div>
+                <button id="run-level2">Run Level 2</button>
+                <span>Skips even numbers - calculates prime numbers up to 1,000.</span>
+            </div>
+            <div>
+                <button id="run-level3">Run Level 3</button>
+                <span>Improved efficiency - calculates prime numbers up to 10,000.</span>
+            </div>
+            <div>
+                <button id="run-level4">Setup Level 4</button>
+                <span>Seed file implementation for very large numbers.</span>
+            </div>
+        </div>
+
+        <div id="level4-controls" class="hidden">
+            <h3>Level 4: Seed File Calculation</h3>
+            <div class="control-group">
+                <label for="max-number-l4">Calculate primes up to:</label>
+                <input type="text" id="max-number-l4" value="10,000,000">
+            </div>
+            <div class="control-group">
+                <label for="seed-file">Select Seed File (Optional):</label>
+                <input type="file" id="seed-file" accept=".csv">
+            </div>
+            <div class="action-buttons">
+                <button id="run-level4-action">Run Calculation</button>
+                <a id="download-seed" class="hidden" href="#" role="button">Download New Seed File</a>
+            </div>
+        </div>
+
+        <div id="results-container">
+            <h2>Results:</h2>
+            <pre id="results"></pre>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="level1.js"></script>
+    <script src="level2.js"></script>
+    <script src="level3.js"></script>
+    <script src="level4.js"></script>
+</body>
+</html>
