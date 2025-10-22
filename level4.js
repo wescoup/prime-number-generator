@@ -18,12 +18,12 @@ function level4(maxNumber, initialPrimes, progressCallback) {
         prime.push(2);
     }
     
-    // **THE FIX: Pre-populate the nonprime set based on the seed primes.**
-    // This is the crucial "catch-up" step.
+    // **Pre-populate the nonprime set based on the seed primes.**
+    // This is a crucial "catch-up" step.
     if (initialPrimes.length > 0) {
         progressCallback('Pre-calculating non-primes...');
         // We can skip prime[0] which is 2, 
-        // since our main loop only checks odd numbers.
+		//since our main loop only checks odd numbers.
         for (let i = 1; i < initialPrimes.length; i++) {
             const p = initialPrimes[i];
             
@@ -61,5 +61,5 @@ function level4(maxNumber, initialPrimes, progressCallback) {
     }
 
     return prime;
-
 }
+
