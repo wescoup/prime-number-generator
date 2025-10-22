@@ -1,13 +1,15 @@
 /**
  * Level 3 improved efficiency calculates prime numbers up to 10,000.
+ * This version is optimized to only generate ODD composite numbers.
  */
 function level3() {
     const prime = [2];
+    // We only need to store odd non-primes,
+	// as the loop will never check an even number.
     const nonprime = [];
     
-    // Set maxNumber and calculate its square root for the optimization check
+    // Set maxNumber
     const maxNumber = 10000;
-    const sqrtMax = Math.sqrt(maxNumber); // This is 100
 
     // Loop through odd numbers up to maxNumber
     for (let x = 3; x <= maxNumber; x+=2) {
@@ -25,9 +27,12 @@ function level3() {
         }
 		
 		// Optimization: Only generate new non-primes within the limit
-		// Multiply x by every value in the prime array
-		for (const p of prime) {
+        // Multiply x by every ODD value in the prime array
+        // We start the loop at i=1 to skip prime[0], which is 2.
+        for (let i = 1; i < prime.length; i++) {
+            const p = prime[i]; // p will be 3, 5, 7, ...
 			const product = x * p;
+
 			// Only add products within the limit
 			if (product <= maxNumber && !nonprime.includes(product)) {
 				nonprime.push(product);
@@ -37,7 +42,7 @@ function level3() {
 				break;
 			}
 		}
-}
+    }
 
     return prime;
 }
